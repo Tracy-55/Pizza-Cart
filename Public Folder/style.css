@@ -1,0 +1,206 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #4f4646;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #28a745;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+header p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pizza-sizes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.pizza-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.pizza-box img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.pizza-box h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.pizza-box p {
+    font-size: 1em;
+    margin: 10px 0 0;
+}
+
+.pizza-box.small {
+    background-color: #ffcccb;
+}
+
+.pizza-box.medium {
+    background-color: #ffc107;
+}
+
+.pizza-box.large {
+    background-color: #28a745;
+    color: #4f4646;
+}
+
+.cart {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.cart h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.cart ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cart ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart ul li span {
+    flex: 1;
+}
+
+.cart ul li button {
+    background-color: #ff4444;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart ul li button:hover {
+    background-color: #ff0000;
+}
+
+.cart div {
+    margin: 20px 0;
+}
+
+.cart button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart button:hover {
+    background-color: #218838;
+}
+
+.checkout {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.checkout h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.checkout input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.checkout button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout button:hover {
+    background-color: #218838;
+}
+
+footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+@media (max-width: 960px) {
+    .pizza-sizes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pizza-box {
+        flex: 1 1 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pizza-box {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}

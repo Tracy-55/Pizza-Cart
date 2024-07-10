@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Pizza Cart</title>
+    <link rel="stylesheet" href="Public Folder/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.2.2/dist/cdn.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body x-data="pizzaCart()">
+    <header>
+        <h1>Perfect Pizza</h1>
+        <p>Your GO to place for the best pizza in town!</p>
+    </header>
+    <main>
+        <section class="pizza-sizes">
+            <div class="pizza-box small">
+                <img src="Public Folder/Small pizza.png" width="200" alt="Small Pizza">
+                <h2>R49.99</h2>
+                <p>Small pizza Margherita and cheese with 3 toppings 1 meat topping. 3 or less other toppings.</p>
+                <button @click="addToCart('small')">Order</button>
+            </div>
+            <div class="pizza-box medium">
+                <img src="Public Folder/Medium Pizza.png" width="400" alt="Medium Pizza">
+                <h2>R79.99</h2>
+                <p>Medium Pepperoni + Bacon pizza with Cream cheese, onion sauce.</p>
+                <button @click="addToCart('medium')">Order</button>
+            </div>
+            <div class="pizza-box large">
+                <img src="Public Folder/Large Pizza2.png" width="600" alt="Large Pizza">
+                <h2>R149.99</h2>
+                <p>Large pizza Margherita and chicken with 3 toppings 1 meat topping. 3 or less other toppings.</p>
+                <button @click="addToCart('large')">Order</button>
+            </div>
+        </section>
+        <section class="cart" x-show="cart.length > 0">
+            <h2>Your Cart</h2>
+            <ul>
+                <template x-for="item in cart" :key="item.size">
+                    <li>
+                        <span x-text="item.size.charAt(0).toUpperCase() + item.size.slice(1) + ' Pizza'"></span>
+                        <span x-text="'R' + item.price.toFixed(2)"></span>
+                        <span x-text="'x ' + item.quantity"></span>
+                        <button @click="removeFromCart(item.size)">Remove</button>
+                    </li>
+                </template>
+            </ul>
+            <div>
+                <p>Total Small Pizzas: <span x-text="totals.small"></span></p>
+                <p>Total Medium Pizzas: <span x-text="totals.medium"></span></p>
+                <p>Total Large Pizzas: <span x-text="totals.large"></span></p>
+                <p>Total Cost: R<span x-text="totalCost.toFixed(2)"></span></p>
+            </div>
+            <button @click="checkout" x-show="cart.length > 0">Check Out</button>
+        </section>
+        <section class="checkout" x-show="isCheckingOut">
+            <h2>Checkout</h2>
+            <input type="number" x-model.number="paymentAmount" placeholder="Enter payment amount">
+            <button @click="processPayment">Submit Payment</button>
+            <p x-text="checkoutMessage"></p>
+        </section>
+    </main>
+    <footer>
+        <h2>At Perfect Pizza, we don’t just make food;
+            we make FOOD With Thought®
+            Food that's good for the environment,
+            local communities and you. Find out more about FOOD With Thought®
+            at perfectpizza.co.za/food-with-thought.</h2>
+        <p>Visit us at 546 Melrose Arc, Melrose</p>
+        <p>Call us: (011-469-3245)</p>
+    </footer>
+</body>
+
+</html>
