@@ -1,18 +1,21 @@
 function pizzaCart() {
     return {
         cart: [],
-        totals: { small: 0, medium: 0, large: 0 },
+        totals: { small: 49.99, medium: 79.99, large: 149.99 },
         totalCost: 0,
         paymentAmount: 0,
         isCheckingOut: false,
         checkoutMessage: '',
-        addToCart(size) {
+        smallQuantity: 0,
+        mediumQuantity: 0,
+        largeQuantity: 0,
+        addToCart(size, quantity) {
             let pizzaPrice = { small: 49.99, medium: 79.99, large: 149.99 }[size];
             let existingItem = this.cart.find(item => item.size === size);
             if (existingItem) {
-                existingItem.quantity++;
+                existingItem.quantity += quantity;
             } else {
-                this.cart.push({ size, price: pizzaPrice, quantity: 1 });
+                this.cart.push({ size, price: pizzaPrice, quantity });
             }
             this.updateTotals();
         },
@@ -51,4 +54,3 @@ function pizzaCart() {
         }
     }
 }
-

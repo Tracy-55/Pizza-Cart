@@ -18,44 +18,52 @@
     <main>
         <section class="pizza-sizes">
             <div class="pizza-box small">
-                <img src="Public Folder/Small pizza.png" width="200" alt="Small Pizza">
+                <img src="Public Folder/Small pizza.png" alt="Small Pizza">
                 <h2>R49.99</h2>
                 <p>Small pizza Margherita and cheese with 3 toppings 1 meat topping. 3 or less other toppings.</p>
-                <button @click="addToCart('small')">Order</button>
+                <input type="number" min="0" x-model.number="smallQuantity" value="1">
+                <button @click="addToCart('small', smallQuantity)">Order</button>
             </div>
             <div class="pizza-box medium">
-                <img src="Public Folder/Medium Pizza.png" width="400" alt="Medium Pizza">
+                <img src="Public Folder/Medium Pizza.png" alt="Medium Pizza">
                 <h2>R79.99</h2>
                 <p>Medium Pepperoni + Bacon pizza with Cream cheese, onion sauce.</p>
-                <button @click="addToCart('medium')">Order</button>
+                <input type="number" min="0" x-model.number="mediumQuantity" value="1">
+                <button @click="addToCart('medium', mediumQuantity)">Order</button>
             </div>
             <div class="pizza-box large">
-                <img src="Public Folder/Large Pizza2.png" width="600" alt="Large Pizza">
+                <img src="Public Folder/Large Pizza2.png" alt="Large Pizza">
                 <h2>R149.99</h2>
                 <p>Large pizza Margherita and chicken with 3 toppings 1 meat topping. 3 or less other toppings.</p>
-                <button @click="addToCart('large')">Order</button>
+                <input type="number" min="0" x-model.number="largeQuantity" value="1">
+                <button @click="addToCart('large', largeQuantity)">Order</button>
             </div>
         </section>
-        <section class="cart" x-show="cart.length > 0">
-            <h2>Your Cart</h2>
-            <ul>
+
+        <section class="Shopping_cart">
+            <h1>Shopping Cart</h1>
+
+            <div class="pizzas" x-show="cart.length > 0">
                 <template x-for="item in cart" :key="item.size">
-                    <li>
-                        <span x-text="item.size.charAt(0).toUpperCase() + item.size.slice(1) + ' Pizza'"></span>
-                        <span x-text="'R' + item.price.toFixed(2)"></span>
-                        <span x-text="'x ' + item.quantity"></span>
-                        <button @click="removeFromCart(item.size)">Remove</button>
-                    </li>
+                    <div :class="item.size + '-cart'">
+                        <span x-text="item.size.charAt(0).toUpperCase() + item.size.slice(1)"></span>:
+                        <template x-if="!isCheckingOut">
+                            <button class="Shopping_cart" @click="addToCart(item.size, 1)">+</button>
+                        </template>
+                        <span x-text="item.quantity"></span>
+                        <template x-if="!isCheckingOut">
+                            <button class="Shopping_cart" @click="removeFromCart(item.size)">-</button>
+                        </template>
+                        <span>Price: R<span x-text="(item.quantity * item.price).toFixed(2)"></span></span>
+                    </div>
                 </template>
-            </ul>
-            <div>
-                <p>Total Small Pizzas: <span x-text="totals.small"></span></p>
-                <p>Total Medium Pizzas: <span x-text="totals.medium"></span></p>
-                <p>Total Large Pizzas: <span x-text="totals.large"></span></p>
-                <p>Total Cost: R<span x-text="totalCost.toFixed(2)"></span></p>
+                <div>
+                    <p>Total Cost: R<span x-text="totalCost.toFixed(2)"></span></p>
+                </div>
+                <button @click="checkout" x-show="cart.length > 0">Check Out</button>
             </div>
-            <button @click="checkout" x-show="cart.length > 0">Check Out</button>
         </section>
+
         <section class="checkout" x-show="isCheckingOut">
             <h2>Checkout</h2>
             <input type="number" x-model.number="paymentAmount" placeholder="Enter payment amount">

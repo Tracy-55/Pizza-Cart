@@ -63,6 +63,24 @@ main {
     margin: 10px 0 0;
 }
 
+.pizza-box input {
+    width: 50px;
+    margin: 10px 0;
+}
+
+.pizza-box button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pizza-box button:hover {
+    background-color: #218838;
+}
+
 .pizza-box.small {
     background-color: #ffcccb;
 }
@@ -76,7 +94,7 @@ main {
     color: #4f4646;
 }
 
-.cart {
+.Shopping_cart {
     background-color: #fff;
     border: 1px solid #ddd;
     padding: 20px;
@@ -84,57 +102,29 @@ main {
     margin: 20px;
     width: 100%;
     max-width: 600px;
+}
+
+.Shopping_cart h1 {
+    font-size: 1.5em;
+    margin: 0 0 20px;
     text-align: center;
 }
 
-.cart h2 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+.Shopping_cart div {
+    margin-bottom: 10px;
 }
 
-.cart ul {
-    list-style: none;
-    padding: 0;
-}
-
-.cart ul li {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.cart ul li span {
-    flex: 1;
-}
-
-.cart ul li button {
-    background-color: #ff4444;
+.Shopping_cart button {
+    background-color: #28a745;
     color: #fff;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-left: 5px;
 }
 
-.cart ul li button:hover {
-    background-color: #ff0000;
-}
-
-.cart div {
-    margin: 20px 0;
-}
-
-.cart button {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.cart button:hover {
+.Shopping_cart button:hover {
     background-color: #218838;
 }
 
@@ -146,61 +136,22 @@ main {
     margin: 20px;
     width: 100%;
     max-width: 600px;
-    text-align: center;
-}
-
-.checkout h2 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-}
-
-.checkout input {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.checkout button {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.checkout button:hover {
-    background-color: #218838;
 }
 
 footer {
-    background-color: #343a40;
+    background-color: #28a745;
     color: #fff;
+    padding: 20px;
     text-align: center;
-    padding: 10px;
-    width: 100%;
-    position: relative;
-    bottom: 0;
-    left: 0;
+    margin-top: 20px;
 }
 
-@media (max-width: 960px) {
-    .pizza-sizes {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .pizza-box {
-        flex: 1 1 100%;
-        max-width: 300px;
-    }
+footer h2 {
+    margin: 0;
+    font-size: 1em;
 }
 
-@media (max-width: 768px) {
-    .pizza-box {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
+footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
 }
