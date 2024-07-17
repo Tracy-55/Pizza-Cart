@@ -1,5 +1,5 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: #4f4646;
     margin: 0;
     padding: 0;
@@ -90,7 +90,7 @@ main {
 }
 
 .pizza-box.large {
-    background-color: #28a745;
+    background-color: #ff451a;
     color: #4f4646;
 }
 
